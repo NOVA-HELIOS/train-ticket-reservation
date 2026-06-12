@@ -1,21 +1,94 @@
 {
-  "family": "train-app-new",
-  "networkMode": "awsvpc",
-  "executionRoleArn": "arn:aws:iam::474668386320:role/ecsTaskExecutionRole",
-  "containerDefinitions": [
-    {
-      "name": "train-app",
-      "image": "474668386320.dkr.ecr.us-west-1.amazonaws.com/train-ticket:1763458983",
-      "portMappings": [
+    "taskDefinitionArn": "arn:aws:ecs:eu-west-3:692797215171:task-definition/veera:1",
+    "containerDefinitions": [
         {
-          "containerPort": 8080,
-          "protocol": "tcp"
+            "name": "container",
+            "image": "692797215171.dkr.ecr.eu-west-3.amazonaws.com/veera-ecr@sha256:0add0f43b47c2065c88fd04d53a15157dc6a70dd42e9327c73c631efceba5661",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "containerPort": 80,
+                    "hostPort": 80,
+                    "protocol": "tcp",
+                    "name": "container-80-tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "environment": [],
+            "environmentFiles": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "ulimits": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/veera",
+                    "awslogs-create-group": "true",
+                    "awslogs-region": "eu-west-3",
+                    "awslogs-stream-prefix": "ecs"
+                },
+                "secretOptions": []
+            },
+            "systemControls": []
         }
-      ],
-      "essential": true
-    }
-  ],
-  "requiresCompatibilities": ["FARGATE"],
-  "cpu": "256",
-  "memory": "512"
+    ],
+    "family": "veera",
+    "taskRoleArn": "arn:aws:iam::692797215171:role/ECS-role-f00185ea",
+    "executionRoleArn": "arn:aws:iam::692797215171:role/ecsTaskExecutionRol",
+    "networkMode": "awsvpc",
+    "revision": 1,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "MANAGED_INSTANCES",
+        "FARGATE"
+    ],
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "1024",
+    "memory": "3072",
+    "registeredAt": "2026-06-12T07:49:12.777Z",
+    "registeredBy": "arn:aws:iam::692797215171:user/sravanthi",
+    "enableFaultInjection": false,
+    "tags": []
 }
