@@ -1,15 +1,14 @@
-# Use official Apache Tomcat base image with JDK 17
+# Use official Apache Tomcat with JDK 17
 FROM tomcat:9.0-jdk17
 
-# Remove default Tomcat apps (optional, for a clean slate)
+# Remove default Tomcat applications
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copy your WAR file into the Tomcat webapps directory
-# Rename it to ROOT.war for root path deployment
+# Copy the WAR file
 COPY target/TrainBook-1.0.0-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
 
-# Expose default Tomcat port
+# Expose Tomcat port
 EXPOSE 8080
 
-# Start Tomcat (default CMD in base image)
-CMD ["catalina.sh", "run"]
+# Start Tomcat
+CMD ["catalina.sh","run"]
