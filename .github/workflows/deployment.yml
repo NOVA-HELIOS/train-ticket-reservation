@@ -65,12 +65,11 @@ jobs:
           sed -i "s|<IMAGE>|$ACCOUNT_ID.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}|g" task-definition.json
           cat task-definition.json > new-task.json
 
-      - name: Deploy to Amazon ECS
+      - name: Deploy to Amazon EKS
         uses: aws-actions/amazon-ecs-deploy-task-definition@v2
         with:
           task-definition: new-task.json
-          service: ${{ secrets.ECS_SERVICE }}
-          cluster: ${{ secrets.ECS_CLUSTER }}
+          cluster: ${{ secrets.EKS_CLUSTER }}
           wait-for-service-stability: true
 
   
