@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      ECR_REPOSITORY: rahul
+      ECR_REPOSITORY: pavan_repo
 
     steps:
 
