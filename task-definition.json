@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:942004241991:task-definition/veera_task:1",
+    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:942004241991:task-definition/veera_task:2",
     "containerDefinitions": [
         {
             "name": "Main",
@@ -16,10 +16,8 @@
             ],
             "essential": true,
             "environment": [],
-            "environmentFiles": [],
             "mountPoints": [],
             "volumesFrom": [],
-            "ulimits": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
@@ -27,8 +25,7 @@
                     "awslogs-create-group": "true",
                     "awslogs-region": "ap-south-1",
                     "awslogs-stream-prefix": "ecs"
-                },
-                "secretOptions": []
+                }
             },
             "systemControls": []
         }
@@ -36,7 +33,7 @@
     "family": "veera_task",
     "executionRoleArn": "arn:aws:iam::942004241991:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 1,
+    "revision": 2,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -83,7 +80,7 @@
     ],
     "cpu": "1024",
     "memory": "3072",
-    "registeredAt": "2026-09-23T07:08:03.032Z",
+    "registeredAt": "2026-09-23T07:20:13.048Z",
     "registeredBy": "arn:aws:iam::942004241991:user/baskarveera",
     "enableFaultInjection": false,
     "tags": []
