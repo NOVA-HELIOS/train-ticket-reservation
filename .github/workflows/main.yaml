@@ -121,4 +121,5 @@ jobs:
         kubectl get pods
         kubectl get svc
         kubectl rollout status deployment/devops-app
+
   
